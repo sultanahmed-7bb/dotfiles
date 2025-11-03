@@ -1,0 +1,50 @@
+(defcfg
+  process-unmapped-keys no
+)
+
+(defvar
+  tap-time  350
+  hold-time 350
+)
+
+(defalias
+  d (tap-hold $tap-time $hold-time d lalt)
+  f (tap-hold $tap-time $hold-time f lsft)
+  n (tap-hold $tap-time $hold-time n rsft)
+  m (tap-hold $tap-time $hold-time m lalt)
+
+  b (tap-hold $tap-time $hold-time b (layer-while-held num))
+  SPC (tap-hold $tap-time $hold-time spc (layer-while-held aux))
+)
+
+(defsrc
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
+  esc       a     s     d     f     g     h     j     k     l     ;     '       ret
+  lsft          z     x     c     v     b     n     m     ,     .     /         rsft
+  lmet  lalt  lctl                     spc                ralt   rmet
+)
+
+(deflayer default
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
+  esc       a     s     @d     @f     g     h     j     k     l     ;     '       ret
+  lsft          z     x     c     v     b     @n     @m     ,     .     /         rsft
+  lmet  lalt  lctl                     @SPC                ralt   rmet
+)
+
+(deflayer aux
+     _   f1   f2   f3   f4   f5   f6   f7   f8   f9  f10  f11  f12    _    _
+     AG-7    AG-8   AG-9    AG-0   _    _    ret    bspc   _    _    _    _    _    _
+     /    AG-2    AG-4    AG-]     _    left down up   rght _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _
+          _    _              _              _    _
+)
+
+(deflayer num
+     _    _    _    _    _    _    _    _   _    _    _    _    _    _
+     _   1   2   3   4   5   6   7   8   9  0  _  _    _    _
+     _    _    _    _    _    _ _ _   _ _    _    _    _
+     _    _    _    _    _    _    _    _    _    _    _    _
+          _    _              _              _    _ 
+)
